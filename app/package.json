@@ -1,0 +1,30 @@
+{
+  "name": "com.torchproducts.livevideostreaminfographics",
+  "version": "1.0.0",
+  "description": "Creates a green screen with infographics and allows you to manage the overlay onto a live video stream with alpha",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^2.0.6"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtg489w/LiveVideoStreamInfographics.git"
+  },
+  "keywords": [
+    "infographics",
+    "live",
+    "video",
+    "streaming",
+    "overlay"
+  ],
+  "author": "Brian O'Connor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gtg489w/LiveVideoStreamInfographics/issues"
+  },
+  "homepage": "https://github.com/gtg489w/LiveVideoStreamInfographics#readme"
+}
