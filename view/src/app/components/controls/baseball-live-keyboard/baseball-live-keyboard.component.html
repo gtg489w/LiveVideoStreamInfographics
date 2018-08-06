@@ -1,0 +1,22 @@
+<div class="card">
+	<div class="card-body">
+		<h5 class="card-title">Keyboard Controls</h5>
+		<div class="pad_small">
+			<div>Live Keyboard <input type="text" [(ngModel)]="liveKeyboardModel" (keypress)="liveKeyboard($event)" /></div>
+			<div>Commands:</div>
+			<div style="font-size: 12px; padding-left: 40px;">
+				R = Run<br />
+				H = Hit<br />
+				E = Error<br />
+				O = Out<br />
+				B = Ball<br />
+				S = Strike<br />
+				C = Clear Count<br />
+				A = Advance Inning<br />
+				1 = Toggle 1st Base Runner<br />
+				2 = Toggle 2nd Base Runner<br />
+				3 = Toggle 3rd Base Runner<br />
+			</div>
+		</div>
+	</div>
+</div>

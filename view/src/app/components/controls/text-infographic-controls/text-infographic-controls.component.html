@@ -1,0 +1,29 @@
+<div class="card">
+	<div class="card-body">
+		<h5 class="card-title">Infographic Title</h5>
+		<div style="margin-bottom: 40px;">
+			<input type="text" class="form-control" [(ngModel)]="settingsService.settings.infographic.title" />
+		</div>
+		<div class="float-right">
+			<div class="sublabel">Font Size:</div>
+			<input type="range" [(ngModel)]="settingsService.settings.infographic.fontPercentage" min="10" max="200" />
+		</div>
+		<h5 class="card-title">Infographic Content</h5>
+		<div style="font-size: 2em; margin-bottom: 40px;">
+			<div [ngStyle]="{ 'font-size': settingsService.settings.infographic.fontPercentage + '%' }">
+				<app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [config]="config" [(ngModel)]="settingsService.settings.infographic.content"></app-ngx-editor>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<select class="form-control" (change)="setContent()" [(ngModel)]="precanndedMessage">
+					<option>Select canned message</option>
+					<option *ngFor="let can of settingsService.settings.infographic.canned" [ngValue]="can">{{ can.title }}</option>
+				</select>
+			</div>
+			<div class="col text-right">
+				<button (click)="changed()" class="btn btn-primary">Send</button>
+			</div>
+		</div>
+	</div>
+</div>

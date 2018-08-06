@@ -1,0 +1,28 @@
+.output-container {
+	margin: 20px;
+}
+.sponsors {
+	width: 800px;
+	height: 500px;
+	border: 1px solid #ffffff;
+	position: relative;
+	overflow: hidden;
+}
+.sponsor {
+	background: #ffffff;
+	width: 300px;
+	height: 200px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	left: 100%;
+	position: absolute;
+	top: 140px;
+	transition: all .7s;
+}
+.sponsor.current {
+	left: 32%;
+}
+.sponsor.after {
+	left: -38%;
+}

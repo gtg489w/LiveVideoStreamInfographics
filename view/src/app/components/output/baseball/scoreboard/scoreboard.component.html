@@ -1,0 +1,36 @@
+<div id="scoreboard" class="scoreboard output-container" [ngClass]="{ 'mask': !settings.scoreboard.showScoreboard }">
+	<div class="scoreboard_title" [ngClass]="{ 'show': settings.scoreboard.showTournamentTitle }">
+		<div class="game_title">{{ game.title }}</div>
+	</div>
+
+	<div class="scoreboard_container">
+		<!-- Team and Score containers -->
+		<div class="home_team">{{ game.home.team }}</div>
+		<div class="away_team">{{ game.away.team }}</div>
+		<div class="home_score">{{ game.home.runs }}</div>
+		<div class="away_score">{{ game.away.runs }}</div>
+
+		<!-- Pitch Count & Outs -->
+		<div class="pitch_count" [hidden]="!settings.scoreboard.showCount || game.finished || game.inning_section == '' || game.inning_section == 'middle' || game.inning_section == 'end'">{{ game.balls }} - {{ game.strikes }}</div>
+		<div class="out_count">
+			<div *ngIf="!game.finished">
+				<span *ngIf="(game.inning_section == 'top' || game.inning_section == 'bottom') && settings.scoreboard.showOuts">{{ game.outs }} OUT</span>
+				<span *ngIf="game.inning_section == 'middle'">MID {{ game.inning }}</span>
+				<span *ngIf="game.inning_section == 'end'">END {{ game.inning }}</span>
+			</div>
+			<div *ngIf="game.finished">
+				FINAL
+			</div>
+		</div>
+
+		<!-- Inning containers -->
+		<div id="inning_text" class="inning_text" [hidden]="game.inning_section == ''">{{ game.inning }}</div>
+		<div class="inning top" [ngClass]="{ active: game.inning_section == 'top'}"></div>
+		<div class="inning bot" [ngClass]="{ active: game.inning_section == 'bottom'}"></div>
+
+		<!-- Base containers -->
+		<div id="base_1" class="base" [ngClass]="{ occupied: game.runners.first }"></div>
+		<div id="base_2" class="base" [ngClass]="{ occupied: game.runners.second }"></div>
+		<div id="base_3" class="base" [ngClass]="{ occupied: game.runners.third }"></div>
+	</div>
+</div>

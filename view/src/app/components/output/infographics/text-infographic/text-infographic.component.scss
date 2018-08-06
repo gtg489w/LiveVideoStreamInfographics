@@ -1,0 +1,49 @@
+.infographic {
+	position: relative;
+	width: 760px;
+	height: 587px;
+	margin: 80px 20px 20px 20px;
+	display: inline-block;
+	background: url(/assets/infographics/infographic.png) center center no-repeat;
+	background-size: contain;
+
+	.main-logo {
+		width: 200px;
+		height: 200px;
+		position: absolute;
+		top: -100px;
+		left: 300px;
+		background: url(/assets/logos/event/little-fenway.png) center center no-repeat;
+		background-size: contain;
+	}
+	.secondary-logo {
+
+	}
+
+	.content {
+		padding: 40px;
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		height: 620px;
+
+		h1 {
+			border-bottom: 1px solid rgba(255, 255, 255, .8);
+			padding-bottom: 6px;
+		}
+
+		.body {
+			flex-grow: 1;
+			display: flex;
+			align-items: center;
+			font-size: 2em;
+			// flex
+		}
+
+		ul {
+			li {
+				margin-bottom: 34px;
+			}
+		}
+	}
+}

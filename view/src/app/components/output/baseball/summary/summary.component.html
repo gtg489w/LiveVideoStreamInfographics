@@ -1,0 +1,29 @@
+<div id="scoreboard_rhe" class="scoreboard output-container" [ngClass]="{ mask: !settings.scoreboard.showSummary }">
+	<div class="scoreboard_title" style="top: 100px; font-size: 16px; text-align: center;">
+		<div *ngIf="game.finished">
+			FINAL
+		</div>
+		<div *ngIf="!game.finished && game.inning_section != ''">
+			<span *ngIf="game.inning_section == 'top'">Top of </span>
+			<span *ngIf="game.inning_section == 'middle'">Middle of </span>
+			<span *ngIf="game.inning_section == 'bottom'">Bottom of </span>
+			<span *ngIf="game.inning_section == 'end'">After </span>
+			{{ game.inning }}
+		</div>
+	</div>
+
+	<div class="scoreboard_container">
+		<!-- Team and Score containers -->
+		<div class="home_team">{{ game.home.team }}</div>
+		<div class="away_team">{{ game.away.team }}</div>
+		<div class="home_score" style="left: 166px;">{{ game.home.runs }}</div>
+		<div class="away_score" style="left: 166px;">{{ game.away.runs }}</div>
+		<div class="home_score" style="left: 212px;">{{ game.home.hits }}</div>
+		<div class="away_score" style="left: 212px;">{{ game.away.hits }}</div>
+		<div class="home_score" style="left: 256px;">{{ game.home.errors }}</div>
+		<div class="away_score" style="left: 256px;">{{ game.away.errors }}</div>
+		<div class="out_count" style="left: 166px; width: 32px;">R</div>
+		<div class="out_count" style="left: 212px; width: 32px;">H</div>
+		<div class="out_count" style="left: 256px; width: 32px;">E</div>
+	</div>
+</div>

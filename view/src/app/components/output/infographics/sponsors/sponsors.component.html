@@ -1,0 +1,3 @@
+<div class="output-container sponsors" [ngClass]="{ mask: !settings.scoreboard.showSponsors }">
+	<div class="sponsor" *ngFor="let sponsor of settings.sponsors; let i = index" [attr.data-index]="i" [ngClass]="{ 'before': i > currentSponsor, 'current': i == currentSponsor, 'after': i < currentSponsor }" [ngStyle]="{ 'background-image': 'url(/assets/logos/sponsors/' + sponsor + ')' }"></div>
+</div>

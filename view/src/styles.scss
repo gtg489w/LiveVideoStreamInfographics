@@ -1,0 +1,45 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/css/font-awesome.min.css';
+
+html, body {
+	background: #e3e3e3;
+	padding: 20px;
+	font-family: arial, sans-serif;
+}
+.card {
+	display: inline-block;
+	float: left;
+}
+.sublabel {
+	display: inline;
+    font-size: 12px;
+    position: relative;
+    top: -4px;
+    color: #999;
+}
+.pad {
+	padding: 20px;
+}
+.pad_small {
+	padding: 10px;
+}
+.clear {
+	font-size: 1px;
+	height: 1px;
+	line-height: 1px;
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+}
+.mask {
+	opacity: 0;
+}
+.output-object {
+	display: inline-block;
+}
+.output-container {
+	float: left;
+}
+ul.spaced li {
+	margin-bottom: 20px;
+}

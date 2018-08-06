@@ -1,0 +1,20 @@
+<div class="card">
+	<div class="card-body">
+		<h5 class="card-title">Settings</h5>
+		<div class="pad_small">
+
+			<div><input type="checkbox" (change)="baseballSettings.changed()" [(ngModel)]="baseballSettings.settings.scoreboard.showTournamentTitle" /> Show Tournament Title</div>
+			<div><input type="checkbox" (change)="baseballSettings.changed()" [(ngModel)]="baseballSettings.settings.scoreboard.showScoreboard" /> Show Scoreboard</div>
+			<div><input type="checkbox" (change)="baseballSettings.changed()" [(ngModel)]="baseballSettings.settings.scoreboard.showSummary" /> Show Summary Scoreboard</div>
+			<div><input type="checkbox" (change)="baseballSettings.changed()" [(ngModel)]="baseballSettings.settings.scoreboard.showCount" /> Show Count</div>
+			<div><input type="checkbox" (change)="baseballSettings.changed()" [(ngModel)]="baseballSettings.settings.scoreboard.showOuts" /> Show Outs</div>
+			<div><input type="checkbox" (change)="baseballSettings.changed()" [(ngModel)]="baseballSettings.settings.scoreboard.showInfographic" /> Show Infographic</div>
+			<div><input type="checkbox" (change)="baseballSettings.changed()" [(ngModel)]="baseballSettings.settings.scoreboard.showSponsors" /> Show Sponsors</div>
+
+			<div class="form-group" style="margin-top: 20px;">
+				<label>Alpha Color:</label>
+				<input type="text" placeholder="Alpha Color (CSS)" class="form-control" (change)="baseballSettings.changed()" [(ngModel)]="baseballSettings.settings.alphaColor" />
+			</div>
+		</div>
+	</div>
+</div>

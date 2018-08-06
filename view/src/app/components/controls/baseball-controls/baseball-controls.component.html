@@ -1,0 +1,116 @@
+<div class="card">
+	<div class="card-body">
+		<h5 class="card-title">Baseball Controls</h5>
+
+		<!-- Scoreboard -->
+
+		<div style="float: left; margin: 10px;">
+			<table class="score_table">
+				<tr>
+					<th></th>
+					<td>R</td>
+					<td>H</td>
+					<td>E</td>
+				</tr>
+				<tr>
+					<td><input class="form-control" type="text" placeholder="Away Team" (ngModelChange)="baseball.setAwayTeamName($event)" [ngModel]="baseball.game.away.team" style="width: 120px; text-align: left;" /></td>
+					<td><input type="text" (ngModelChange)="baseball.setAwayRuns($event)" [ngModel]="baseball.game.away.runs" (click)="$event.target.select()" /></td>
+					<td><input type="text" (ngModelChange)="baseball.setAwayHits($event)" [ngModel]="baseball.game.away.hits" (click)="$event.target.select()" /></td>
+					<td><input type="text" (ngModelChange)="baseball.setAwayErrors($event)" [ngModel]="baseball.game.away.errors" (click)="$event.target.select()" /></td>
+				</tr>
+				<tr>
+					<td><input class="form-control" type="text" placeholder="Home Team" (ngModelChange)="baseball.setHomeTeamName($event)" [ngModel]="baseball.game.home.team" style="width: 120px; text-align: left;" /></td>
+					<td><input type="text" (ngModelChange)="baseball.setHomeRuns($event)" [ngModel]="baseball.game.home.runs" (click)="$event.target.select()" /></td>
+					<td><input type="text" (ngModelChange)="baseball.setHomeHits($event)" [ngModel]="baseball.game.home.hits" (click)="$event.target.select()" /></td>
+					<td><input type="text" (ngModelChange)="baseball.setHomeErrors($event)" [ngModel]="baseball.game.home.errors" (click)="$event.target.select()" /></td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<input type="text" (ngModelChange)="baseball.setTitle($event)" [ngModel]="baseball.game.title" (click)="$event.target.select()" placeholder="Game/Tournament Title" class="form-control" style="width: 100%;" />
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<!-- Inning Tracker -->
+
+		<div style="float: left; margin: 10px;">
+			<table class="score_table">
+				<tr>
+					<td style="text-align: left;">
+						<div><input type="radio" name="inning_select" [ngModel]="baseball.game.inning_section" (ngModelChange)="baseball.updateInningSection($event)" [value]="'top'" /> Top</div>
+						<div><input type="radio" name="inning_select" [ngModel]="baseball.game.inning_section" (ngModelChange)="baseball.updateInningSection($event)" [value]="'middle'" /> Middle</div>
+						<div><input type="radio" name="inning_select" [ngModel]="baseball.game.inning_section" (ngModelChange)="baseball.updateInningSection($event)" [value]="'bottom'" /> Bottom</div>
+						<div><input type="radio" name="inning_select" [ngModel]="baseball.game.inning_section" (ngModelChange)="baseball.updateInningSection($event)" [value]="'end'" /> End</div>
+						<div style="text-align: center;">
+							<button class="btn btn-xs" (click)="baseball.advanceInning()">Advance</button>
+						</div>
+					</td>
+					<td><input type="text" (ngModelChange)="baseball.setInning($event)" [ngModel]="baseball.game.inning" (click)="$event.target.select()" /></td>
+				</tr>
+			</table>
+		</div>
+
+		<!-- Pitch Count -->
+
+		<div style="float: left; margin: 10px;">
+			<table class="score_table">
+				<tr>
+					<th>Balls</th>
+					<th>Srikes</th>
+					<th>Outs</th>
+				</tr>
+				<tr>
+					<td><input type="text" [disabled]="baseball.game.inning_section=='middle' || baseball.game.inning_section=='end'" (ngModelChange)="baseball.setBalls($event)" [ngModel]="baseball.game.balls" (click)="$event.target.select()" /></td>
+					<td><input type="text" [disabled]="baseball.game.inning_section=='middle' || baseball.game.inning_section=='end'" (ngModelChange)="baseball.setStrikes($event)" [ngModel]="baseball.game.strikes" (click)="$event.target.select()" /></td>
+					<td><input type="text" [disabled]="baseball.game.inning_section=='middle' || baseball.game.inning_section=='end'" (ngModelChange)="baseball.setOuts($event)" [ngModel]="baseball.game.outs" (click)="$event.target.select()" /></td>
+				</tr>
+				<tr>
+					<td><button class="btn btn-xs" (click)="baseball.addBall()" [disabled]="baseball.game.inning_section=='middle' || baseball.game.inning_section=='end'">+1</button></td>
+					<td><button class="btn btn-xs" (click)="baseball.addStrike()" [disabled]="baseball.game.inning_section=='middle' || baseball.game.inning_section=='end'">+1</button></td>
+					<td><button class="btn btn-xs" (click)="baseball.addOut()" [disabled]="baseball.game.inning_section=='middle' || baseball.game.inning_section=='end'">+1</button></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button class="btn btn-xs" (click)="baseball.clearCount()" [disabled]="baseball.game.inning_section=='middle' || baseball.game.inning_section=='end'">Clear</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<!-- Base Runners -->
+
+		<div style="float: left; margin: 10px;">
+			<table class="score_table">
+				<tr>
+					<td>
+						Runners
+						<div id="runner_control" style="position: relative; width: 110px; height: 60px;">
+							<div class="base" style="left: 40px; top: 4px;" (click)="baseball.toggleSecond()" [ngClass]="{occupied: baseball.game.runners.second}"></div>
+							<div class="base" style="left: 20px; top: 20px;" (click)="baseball.toggleThird()" [ngClass]="{occupied: baseball.game.runners.third}"></div>
+							<div class="base" style="left: 60px; top: 20px;" (click)="baseball.toggleFirst()" [ngClass]="{occupied: baseball.game.runners.first}"></div>
+						</div>
+						<button class="btn btn-xs" (click)="baseball.clearRunners()">Clear</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<!-- Events -->
+
+		<div style="float: left; margin: 10px;">
+			<table class="score_table">
+				<tr>
+					<td>
+						<label>Game Events</label>
+						<button class="btn btn-primary btn-block" (click)="baseball.homeRun()">Home Run</button>
+						<button class="btn btn-primary btn-block" (click)="baseball.finishGame()">Finish Game</button>
+						<button class="btn btn-primary btn-block" (click)="baseball.newGame()">New Game</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="clear">&nbsp;</div>
+	</div>
+</div>

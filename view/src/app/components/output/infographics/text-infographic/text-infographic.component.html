@@ -1,0 +1,8 @@
+<div class="infographic output-container" [ngClass]="{ mask: !settings.scoreboard.showInfographic }">
+	<div class="main-logo"></div>
+	<div class="secondary-logo"></div>
+	<div class="content" [ngStyle]="{ 'font-size': settings.infographic.fontPercentage + '%' }">
+		<h1>{{ settings.infographic.title }}</h1>
+		<div class="body" [innerHTML]="settings.infographic.content"></div>
+	</div>
+</div>

@@ -9,8 +9,8 @@ function createWindows () {
 	outputWindow = new BrowserWindow({width: 800, height: 600})
 
 	// Dev
-	controllerWindow.loadURL('http://localhost:4201/');
-	outputWindow.loadURL('http://localhost:4202/');
+	controllerWindow.loadURL('http://localhost:4200/controller');
+	outputWindow.loadURL('http://localhost:4200/output');
 
 	// controllerWindow.webContents.openDevTools()
 
